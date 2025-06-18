@@ -1,0 +1,108 @@
+# 🧠 Text To SQL AI Assistant
+
+![Python](https://img.shields.io/badge/python-3.8%2B-blue)
+![Streamlit](https://img.shields.io/badge/streamlit-1.35.0-orange)
+![License](https://img.shields.io/badge/license-MIT-green)
+![Last Commit](https://img.shields.io/github/last-commit/abdulahad0296/text2sql)
+![GitHub stars](https://img.shields.io/github/stars/abdulahad0296/text-to-sql?style=social)
+
+## 📋 Overview
+An AI-based assistant that generates SQL queries based on user input and displays the desired output.  
+This project is an upgrade to my previous project on customer segmentation, now powered by **Google Gemini API** and **Streamlit** for interactive querying.
+
+---
+
+## 📁 Project Structure
+
+```
+
+text\_to\_sql/
+├── app.py            # Main file that contains UI and controls the workflow
+├── customers.db      # Not uploaded (auto-generated when loading the CSV)
+├── load\_data.py     # One-time data cleaning and DB insertion
+├── OnlineRetail.csv  # Dataset (available on Kaggle)
+├── README.md         # We are here!!!
+├── requirements.txt  # Required Python packages
+├── sql.db            # Here we setup connection and create the table
+├── test.ipynb        # EDA notebook
+
+````
+
+---
+
+## ⚙️ How to Run the Project
+
+### 1. 📦 Install dependencies
+
+```bash
+pip install -r requirements.txt
+````
+
+### 2. 📁 Prepare the database
+
+Make sure you have `OnlineRetail.csv` in the project folder you can [download it from Kaggle](https://www.kaggle.com/datasets/vijayuv/onlineretail)
+Then run:
+
+
+```bash
+python sql.py
+python load_data.py
+```
+
+This creates the table and loads the cleaned data into a local SQLite database `customers.db`.
+
+### 3. 🚀 Launch the Streamlit App
+
+```bash
+streamlit run app.py
+```
+
+Open the app in your browser via the link in terminal (usually `http://localhost:8501`).
+
+---
+
+## 💬 Example Questions to Ask
+
+* How many total transactions are there?
+* What is the total revenue?
+* Show all records from United Kingdom.
+* List all transactions with quantity greater than 50.
+* Which customer made the highest purchase?
+
+The app will convert these into SQL queries using Gemini and fetch results from the database.
+
+---
+
+## 🔐 API Key Note
+
+The Google Gemini API key is currently **hardcoded in `app.py`**.
+You can optionally switch to using `.env` and `os.getenv()` for better security.
+
+---
+
+## 📦 Requirements
+
+All dependencies are listed in `requirements.txt`, including:
+
+* `streamlit`
+* `pandas`
+* `sqlite3` (standard library)
+* `google-genai`
+
+---
+
+## 📄 License
+
+This project is licensed under the **MIT License**.
+Feel free to use, modify, and share!
+
+---
+
+
+## 👨‍💻 Author
+
+**Abdul Ahad**
+🔗 [LinkedIn](https://www.linkedin.com/in/abdul-ahad-0296)
+🐙 [GitHub](https://github.com/abdulahad0296)
+
+
