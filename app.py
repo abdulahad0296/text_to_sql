@@ -5,7 +5,7 @@ import google.genai as genai
 import pandas as pd  
 
 # Only run this block for Gemini Developer API
-client = genai.Client(api_key='AIzaSyABDRl2z7DDmzrG7kXyTH1A40_WSXkBadQ')
+client = genai.Client(api_key='Your API Key')
 
 
 #Loading gemini and get sql query as response
