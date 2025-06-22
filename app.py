@@ -1,63 +1,10 @@
 
 import streamlit as st
-import sqlite3
-import google.genai as genai
 import pandas as pd  
 
-# Only run this block for Gemini Developer API
-client = genai.Client(api_key='Your API Key')
-
-
-#Loading gemini and get sql query as response
-
-def get_response(question, prompt):
-    full_prompt = f"{prompt[0]}\n\n{question}"
-    
-    response = client.models.generate_content(
-        model="gemini-2.0-flash",  # or "gemini-2.0-flash" if you want faster, cheaper responses
-        contents=full_prompt
-    )
-    
-    return response.text
-
-#retreving the queried data from the db
-def read_sql_query(sql,db):
-    connn=sqlite3.connect(db)
-    cur=connn.cursor()
-    cur.execute(sql)
-
-    #retrieving column names
-    column=[description[0] for description in cur.description] 
-    rows=cur.fetchall()
-
-    connn.commit()
-    connn.close()
-
-    for i in rows:
-        print(i)
-    return column,rows
-
-
-prompt=[
-    """
-    You are an expert at converting English questions to SQL queries!
-The SQL database is named transactions and has the following columns: InvoiceNo, StockCode, Description, Quantity, InvoiceDate, UnitPrice, CustomerID, Country
-
-For example:
-Example 1 – How many total transactions are recorded?
-The SQL command will be something like:
-SELECT COUNT(\*) FROM transactions;
-
-Example 2 – Show all records where the country is United Kingdom.
-The SQL command will be like:
-SELECT \* FROM transactions WHERE Country = 'United Kingdom';
-
-Example 3 – What is the total revenue generated?
-The SQL command will be:
-SELECT SUM(Quantity \* UnitPrice) AS TotalRevenue FROM transactions;
-
-The SQL code should not have \`\`\` in the beginning or the end, and should not include the word "sql" in the output. Only return the SQL query.
-"""]
+from ai_utils import get_response
+from read_query import read_sql_query
+from config import prompt
 
 st.set_page_config(page_title="Lets get you a SQL query")
 st.header("Talking with the database using AI")
