@@ -1,19 +1,10 @@
-# 🧠 Text To SQL AI Assistant
+🧠 Text To SQL AI Assistant
 
-![Python](https://img.shields.io/badge/python-3.8%2B-blue)
-![Streamlit](https://img.shields.io/badge/streamlit-1.35.0-orange)
-![License](https://img.shields.io/badge/license-MIT-green)
-
-
-## 📋 Overview
+📋 Overview
 An AI-based assistant that generates SQL queries based on user input and displays the desired output.  
 This project is an upgrade to my previous project on customer segmentation, now powered by **Google Gemini API** and **Streamlit** for interactive querying.
 
----
-
-## 📁 Project Structure
-
-```
+📁 Project Structure
 
 text\_to\_sql/
 ├── ai_utils.py       # This file handles API calling and user prompt
@@ -30,38 +21,32 @@ text\_to\_sql/
 
 
 
-## ⚙️ How to Run the Project
+⚙️ How to Run the Project
 
-### 1. 📦 Install dependencies
+1. 📦 Install dependencies
 
-```bash
 pip install -r requirements.txt
-````
 
-### 2. 📁 Prepare the database
+
+2. 📁 Prepare the database
 
 Make sure you have `OnlineRetail.csv` in the project folder you can [download it from Kaggle](https://www.kaggle.com/datasets/vijayuv/onlineretail)
 Then run:
 
-
-```bash
 python sql.py
 python load_data.py
-```
 
 This creates the table and loads the cleaned data into a local SQLite database `customers.db`.
 
-### 3. 🚀 Launch the Streamlit App
 
-```bash
+3. 🚀 Launch the Streamlit App
+
 streamlit run app.py
-```
 
 Open the app in your browser via the link in terminal (usually `http://localhost:8501`).
 
----
 
-## 💬 Example Questions to Ask
+💬 Example Questions to Ask
 
 * How many total transactions are there?
 * What is the total revenue?
@@ -71,16 +56,14 @@ Open the app in your browser via the link in terminal (usually `http://localhost
 
 The app will convert these into SQL queries using Gemini and fetch results from the database.
 
----
 
-## 🔐 API Key Note
+🔐 API Key Note
 
-The Google Gemini API key is currently **hardcoded in `app.py`**.
+The Google Gemini API key is currently **hardcoded in `config.py`.
 You can optionally switch to using `.env` and `os.getenv()` for better security.
 
----
 
-## 📦 Requirements
+📦 Requirements
 
 All dependencies are listed in `requirements.txt`, including:
 
@@ -89,19 +72,9 @@ All dependencies are listed in `requirements.txt`, including:
 * `sqlite3` (standard library)
 * `google-genai`
 
----
 
-## 📄 License
-
-This project is licensed under the **MIT License**.
-Feel free to use, modify, and share!
-
----
-
-
-## 👨‍💻 Author
-
-**Abdul Ahad**
+👨‍💻 Author
+Abdul Ahad
 🔗 [LinkedIn](https://www.linkedin.com/in/abdul-ahad-0296)
 🐙 [GitHub](https://github.com/abdulahad0296)
 
