@@ -16,18 +16,19 @@ This project is an upgrade to my previous project on customer segmentation, now 
 ```
 
 text\_to\_sql/
+├── ai_utils.py       # This file handles API calling and user prompt
 ├── app.py            # Main file that contains UI and controls the workflow
+├── config.py         # Contains API KEY and System Prompt
 ├── customers.db      # Not uploaded (auto-generated when loading the CSV)
-├── load\_data.py     # One-time data cleaning and DB insertion
+├── load_data.py      # One-time data cleaning and DB insertion
 ├── OnlineRetail.csv  # Dataset (available on Kaggle)
 ├── README.md         # We are here!!!
+├── read_query.py     # Execute the SQL query generated on the basis of user's prompt
 ├── requirements.txt  # Required Python packages
 ├── sql.db            # Here we setup connection and create the table
 ├── test.ipynb        # EDA notebook
 
-````
 
----
 
 ## ⚙️ How to Run the Project
 
